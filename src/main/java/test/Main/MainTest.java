@@ -1,40 +1,45 @@
-package test.Main; 
+package test.Main;
 
-import org.junit.Test; 
-import org.junit.Before; 
+import Beans.ItemHolder;
+import org.junit.Test;
+import org.junit.Before;
 import org.junit.After;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/** 
-* Main Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>十月 11, 2016</pre> 
-* @version 1.0 
-*/ 
-public class MainTest { 
+/**
+ * Main Tester.
+ *
+ * @author <Authors name>
+ * @version 1.0
+ * @since <pre>十月 11, 2016</pre>
+ */
+public class MainTest {
 
-@Before
-public void before() throws Exception { 
-} 
+    @Before
+    public void before() throws Exception {
+    }
 
-@After
-public void after() throws Exception { 
-} 
+    @After
+    public void after() throws Exception {
+    }
 
-/** 
-* 
-* Method: method() 
-* 
-*/ 
-@Test
-public void testMethod() throws Exception { 
+    /**
+     * Method: method()
+     */
+    @Test
+    public void testMethod() throws Exception {
 //TODO: Test goes here...
-    ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-    Object testBean = classPathXmlApplicationContext.getBean("testBean");
-    System.out.println(testBean);
-} 
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Object testBean = classPathXmlApplicationContext.getBean("testBean");
+        System.out.println(testBean);
+    }
+    @Test
+    public void test2xml(){
+        ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("ItemHolderConfig.xml");
+        ItemHolder bean = ctx.getBean(ItemHolder.class);
+        Object itemCar = ctx.getBean("itemCar");
 
-
+        System.out.println(itemCar);
+        System.out.println(bean);
+    }
 } 
