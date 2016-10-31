@@ -15,7 +15,7 @@
     <!--&lt;!&ndash;4.  设定配置文件列表 设置全局参数 为3的参数配置信息&ndash;&gt;-->
     <!--<context-param>-->
         <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>classpath:spring.xml,classpath:applicationContext.xml,classpath:ItemConfig.xml,classpath:ItemHolderConfig.xml</param-value>-->
+        <!--<param-value>classpath:springMVC.xml,classpath:applicationContext.xml,classpath:ItemConfig.xml,classpath:ItemHolderConfig.xml</param-value>-->
 
     <!--</context-param>-->
 
@@ -26,7 +26,15 @@
         <!--配置spring上下文  (从该目录下加载spring mvc的配置文件) -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring.xml,classpath:spring.xml,classpath:applicationContext.xml,classpath:ItemConfig.xml,classpath:ItemHolderConfig.xml</param-value>
+            <param-value>
+                classpath:applicationContext.xml,
+                classpath:ItemConfig.xml,
+                classpath:ItemHolderConfig.xml,
+                classpath:LearnScope.xml,
+                classpath:beans.xml
+                classpath:springMVC.xml,
+            </param-value>
+
         </init-param>
         <load-on-startup>1</load-on-startup>  <!-- tomcat启动后立即加载 -->
     </servlet>

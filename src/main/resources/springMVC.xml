@@ -13,8 +13,7 @@
           "
        default-autowire="byName">
     <mvc:annotation-driven></mvc:annotation-driven>
-    <context:component-scan base-package="Controllers"></context:component-scan>
-    
+    <context:component-scan base-package="Controllers,Beans"></context:component-scan>
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
 
 

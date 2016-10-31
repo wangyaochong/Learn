@@ -5,7 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:itemProperties.properties"></property>
+    </bean>
+
     <bean id="itemCar" name="itemCar" class="Beans.Item" p:itemName="car">
+    </bean>
+    <bean id="itemFromProperty" name="itemFromProperty" class="Beans.Item">
+        <property name="itemName" value="${itemName}"></property>
     </bean>
 
     <!--<bean id="itemBox" class="Beans.Item">-->
