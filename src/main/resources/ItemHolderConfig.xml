@@ -9,7 +9,7 @@
         <property name="itemList">
             <list>
                 <ref bean="itemCar"></ref>
-                <ref bean="itemBox"></ref>
+                <!--<ref bean="itemBox"></ref>-->
             </list>
         </property>
     </bean>

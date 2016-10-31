@@ -20,4 +20,8 @@ public class Item {
                 "ItemName='" + ItemName + '\'' +
                 '}';
     }
+
+    public Item() {
+        System.out.println("item()"+this.ItemName);
+    }
 }
