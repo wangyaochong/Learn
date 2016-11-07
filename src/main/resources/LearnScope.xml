@@ -8,7 +8,7 @@
 >
     <bean id="scopeItem" name="scopeItem" class="Beans.Item" scope="request">
         <property name="itemName" value="scope"></property>
-        <aop:scoped-proxy></aop:scoped-proxy>
+        <aop:scoped-target></aop:scoped-target>
         <!--如果不加上代理，会报错-->
     </bean>
     <bean name="scopeItemHolder" class="Beans.ItemHolder">
