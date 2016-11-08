@@ -42,6 +42,14 @@ public class TestController {
         logger.info("hello log4j.");
         return "hello";
     }
+    @RequestMapping(value = "/testAop")
+    @ResponseBody
+    public String testAop(){
+        Logger.getLogger(this.getClass()).info("inside testAop()");
+        return "testaop";
+    }
+
+
 
     @Resource(name = "scopeItemHolder")
     ItemHolder itemHolder;
@@ -51,4 +59,5 @@ public class TestController {
         System.out.println("scopeItemHolder:" + itemHolder);
         System.out.println("itemFromProperty:" + itemFormProp);
     }
+
 }

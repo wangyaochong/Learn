@@ -1,9 +1,9 @@
 package test.Main;
 
-import Aop.CglibAop;
-import Aop.SimpleBeanImpl;
-import Aop.SimpleBeanInterface;
-import Aop.SimpleBeanProxy;
+import Aop.AopImplements.CglibAop;
+import Aop.AopImplements.SimpleBeanImpl;
+import Aop.AopImplements.SimpleBeanInterface;
+import Aop.AopImplements.SimpleBeanProxy;
 import org.junit.Test;
 
 import java.lang.reflect.Proxy;
