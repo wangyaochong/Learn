@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -44,9 +45,9 @@ public class TestController {
     }
     @RequestMapping(value = "/testAop")
     @ResponseBody
-    public String testAop(){
+    public String testAop(@RequestParam String name){
         Logger.getLogger(this.getClass()).info("inside testAop()");
-        return "testaop";
+        return "testaop,name="+name;
     }
 
 

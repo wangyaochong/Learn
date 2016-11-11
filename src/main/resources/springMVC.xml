@@ -12,12 +12,21 @@
           http://www.springframework.org/schema/mvc
           http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
           http://www.springframework.org/schema/aop
-          http://www.springframework.org/schema/aop/spring-mvc-4.3.xsd
+          http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
           "
        default-autowire="byName">
     <mvc:annotation-driven></mvc:annotation-driven>
     <context:component-scan base-package="Controllers,Beans,Aop"></context:component-scan>
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
+
+    <bean class="Aop.AnnotaionAop.AopLog" id="aopLog"></bean>
+
+    <aop:config>
+        <aop:pointcut expression="execution(* testAop(*))" id="testAopPointCut"></aop:pointcut>
+        <aop:aspect ref="aopLog" order="1">
+            <aop:around method="displayLogAroundWithXmlConfig" pointcut-ref="testAopPointCut"></aop:around>
+        </aop:aspect>
+    </aop:config>
 
 
 </beans>

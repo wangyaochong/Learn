@@ -4,5 +4,6 @@
 <h2>Hello World!</h2>
 </body>
 <a href="hello">sayHello</a>
-<a href="testAop">testAop</a>
+<a href="testAop?name=wangyaochong">testAop</a>
+<a href="html/hello.html">hello.html</a>
 </html>
