@@ -14,7 +14,7 @@
     "gulp-util": "*",
     "gulp-watch": "*",
     "gulp-jshint":"*",
-    "gulp-html-replace":"*"
+    "gulp-replace":"*"
   },
 
   "scripts": {

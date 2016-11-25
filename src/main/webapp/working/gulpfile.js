@@ -4,7 +4,7 @@ var gulpModules={
     gulpJade:require('gulp-pug'),
     gulpConcat:require('gulp-concat'),
     gulpJshint:require('gulp-jshint'),
-    gulpReplace:require('gulp-replace')
+    gulpReplace:require('gulp-replace'),
 }
 var processPath={
     jadePath:"../front/jade/*.jade",
@@ -17,12 +17,20 @@ var taskNames={
     watch:'watch',
     js2one:'js2one'
 }
-var jadeOptions={
+var optionsForJade={
     pretty:true
 }
-var replaceOptions={
+var optionsForReplace={
     toReplace:'hhhh',
     afterReplace:"script(src='view/js/app.js')"
+}
+var optionsForLivereload={
+    // port :                    Server port
+    // host                     Server host
+    // basePath                 Path to prepend all given paths
+    // start                    Automatically start
+    //  quiet        false       Disable console logging
+    // reloadPage   index.html  Path to the browser's current page for a full page reload
 }
 var globalVariable={
     eventPath:"",
@@ -30,9 +38,10 @@ var globalVariable={
 }
 gulpModules.gulp.task(taskNames.jade2html, function buildHTML() {
     return gulpModules.gulp.src(processPath.jadePath)
-        .pipe(gulpModules.gulpReplace(replaceOptions.toReplace,replaceOptions.afterReplace))
-        .pipe(gulpModules.gulpJade(jadeOptions))
+        .pipe(gulpModules.gulpReplace(optionsForReplace.toReplace,optionsForReplace.afterReplace))
+        .pipe(gulpModules.gulpJade(optionsForJade))
         .pipe(gulpModules.gulp.dest(processPath.jade2htmlPath))
+      
 });
 gulpModules.gulp.task(taskNames.js2one,function () {
     return gulpModules.gulp.src(processPath.jsPath)
@@ -42,7 +51,6 @@ gulpModules.gulp.task(taskNames.js2one,function () {
         .pipe(gulpModules.gulp.dest(processPath.js2onePath))
 })
 gulpModules.gulp.task(taskNames.watch,function () {
-
     //监视jade路径下的文件是否有修改
     gulpModules.gulp.watch(processPath.jadePath,[taskNames.jade2html]);
     gulpModules.gulp.watch(processPath.jsPath,[taskNames.js2one]);
@@ -55,8 +63,5 @@ gulpModules.gulp.task(taskNames.watch,function () {
         gulpModules.gulpUtil.log("event:"+globalVariable.eventType);
     });
 })
-
-
-
 gulpModules.gulp.task('default', [taskNames.watch,taskNames.jade2html,taskNames.js2one]);
 
